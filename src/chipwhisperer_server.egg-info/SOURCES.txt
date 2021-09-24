@@ -1,8 +1,0 @@
-README.md
-pyproject.toml
-setup.py
-src/chipwhisperer_server.egg-info/PKG-INFO
-src/chipwhisperer_server.egg-info/SOURCES.txt
-src/chipwhisperer_server.egg-info/dependency_links.txt
-src/chipwhisperer_server.egg-info/requires.txt
-src/chipwhisperer_server.egg-info/top_level.txt
