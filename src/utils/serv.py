@@ -1,19 +1,29 @@
 #import chipwhisperer as cw
 
+
 class CWServer:
-    def __init__(self):
+    def __init__(self,com_channel):
         self.initialized = False
+        self.com = com_channel
 
     def init(self):
         if(not self.initialized):
-            print("Initializing Chipwhisperer")
+            self.com.send_data("Initializing Chipwhisperer")
             self.initialized = True
             #self.scope = cw.scope()
         else:
-            print("Chipwhisperer already initialized")
+            self.com.send_data("Chipwhisperer already initialized")
 
     def start_trace(self):
-        print("Acquiring trace")
+        if not self.initialized:
+            self.com.send_data("Chipwhisperer not yet initialized")
+            return
+
+        self.com.send_data("Acquiring trace")
 
     def stop_trace(self):
-        print("Stopping trace")
+        if not self.initialized:
+            self.com.send_data("Chipwhisperer not yet initialized")
+            return
+            
+        self.com.send_data("Stopping trace")
