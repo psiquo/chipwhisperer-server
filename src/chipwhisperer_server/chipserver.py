@@ -1,8 +1,5 @@
 import os
-import utils.serv as s
-import utils.socket_listener as soc
-
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__)).replace(" ","\ ")
+from .utils import serv as s
 
 
 def listen(com_channel):
@@ -21,6 +18,3 @@ def listen(com_channel):
         elif(command in commands.keys()):
             commands[command]()
 
-if __name__ == "__main__":
-    so = soc.SocketListener()
-    listen(so)

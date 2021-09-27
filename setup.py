@@ -8,9 +8,6 @@ setuptools.setup(
     version="0.1",
     author="psiquo",
     author_email="daviderusconi1@gmail.com",
-    description="A small example package",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
     url="https://github.com/psiquo/chipwhisperer-server",
     classifiers=[
         "Programming Language :: Python :: 3",
