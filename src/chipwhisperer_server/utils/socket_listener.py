@@ -19,7 +19,7 @@ class SocketListener:
         self.intialized = True
     
     def close(self):
-        
+
         if not self.intialized:
             self.initialize_channel()
             
@@ -31,14 +31,18 @@ class SocketListener:
         if not self.intialized:
             self.initialize_channel()
 
-        print(f"Sending data {data}")
+        print(f"###### SOCKET LISTENER #####\n Sending data {data}\n###########\n")
         self.conn.sendall(bytearray(data,"utf-8"))
     
-    def receive_data(self):
+    def receive_data(self, to_string = True):
 
         if not self.intialized:
             self.initialize_channel()
 
-        s =  self.conn.recv(1024).decode("utf-8")
-        print(f"Received data {s}")
+        s =  self.conn.recv(1024)
+
+        if to_string:
+            s = s.decode("utf-8")
+            
+        print(f"###### SOCKET LISTENER #####\nReceived data {s}\n###########\n")
         return s
