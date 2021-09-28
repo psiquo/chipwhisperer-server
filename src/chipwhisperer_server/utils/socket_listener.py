@@ -34,15 +34,15 @@ class SocketListener:
         print(f"###### SOCKET LISTENER #####\n Sending data {data}\n###########\n")
         self.conn.sendall(bytearray(data,"utf-8"))
     
-    def receive_data(self, to_string = True):
+    def receive_data(self, decode = True):
 
         if not self.intialized:
             self.initialize_channel()
 
         s =  self.conn.recv(1024)
 
-        if to_string:
+        if decode:
             s = s.decode("utf-8")
-            
+
         print(f"###### SOCKET LISTENER #####\nReceived data {s}\n###########\n")
         return s

@@ -49,8 +49,8 @@ class CWServer:
         self.com.send_data("Stopping trace")
         wave = self.scope.get_last_trace().wave
 
-        plaintext = self.com.receive_data(False)
-        cyphertext = self.com.receive_data(False)
+        plaintext = self.com.receive_data(decode = False)
+        cyphertext = self.com.receive_data(decode = False)
 
         trace = cw.Trace(wave,plaintext,cyphertext,None)
         self.proj.traces.append(trace)
