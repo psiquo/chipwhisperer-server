@@ -1,10 +1,10 @@
 import chipwhisperer as cw
+import Pyro5
 
-
+@Pyro5.expose
 class CWServer:
-    def __init__(self,com_channel):
+    def __init__(self):
         self.initialized = False
-        self.com = com_channel
 
     def init(self):
         """
