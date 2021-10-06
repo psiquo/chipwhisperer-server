@@ -1,7 +1,7 @@
 import chipwhisperer as cw
-import Pyro5
+import Pyro5.server
 
-@Pyro5.expose
+@Pyro5.server.expose
 class CWServer:
     def __init__(self):
         self.initialized = False
