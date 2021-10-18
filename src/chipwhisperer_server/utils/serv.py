@@ -59,6 +59,7 @@ class CWServer:
         plaintext = self.com.receive_data(decode = False)
         cyphertext = self.com.receive_data(decode = False)
 
+        print("Creating trace with:\n",plaintext,"\n",cyphertext,"\n",wave)
         trace = cw.Trace(wave,plaintext,cyphertext,None)
         self.proj.traces.append(trace)
 
