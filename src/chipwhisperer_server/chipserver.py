@@ -13,6 +13,7 @@ def listen(com_channel):
     while(True):
         command = com_channel.receive_data()
         if(command == "q"):
+            serv.quit()
             com_channel.close()
             break
         elif(command in commands.keys()):

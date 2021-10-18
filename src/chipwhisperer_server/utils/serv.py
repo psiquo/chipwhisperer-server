@@ -23,7 +23,7 @@ class CWServer:
 
         self.initialized = True
         self.scope = cw.scope()
-        self.proj = proj = cw.create_project(fname)
+        self.proj = cw.create_project(fname)
 
     def start_trace(self):
         if not self.initialized:
@@ -32,7 +32,11 @@ class CWServer:
 
         self.com.send_data("Acquiring trace")
         self.scope.arm()
-        self.scope.trace()
+        self.scope.capture()
+        
+    def quit(self):
+        self.proj.close()
+        self.scope.dis()
 
     def stop_trace(self):
         """
@@ -47,7 +51,7 @@ class CWServer:
             return
             
         self.com.send_data("Stopping trace")
-        wave = self.scope.get_last_trace().wave
+        wave = self.scope.get_last_trace()
 
         plaintext = self.com.receive_data(decode = False)
         cyphertext = self.com.receive_data(decode = False)
