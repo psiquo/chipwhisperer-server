@@ -3,7 +3,8 @@ import os
 
 class SocketListener:
     def __init__(self, file_socket = "chipserver") -> None:
-        self.socket = (s := socket.socket(socket.AF_UNIX,socket.SOCK_STREAM))
+        self.socket = s = socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)
+
         self.intialized = False
 
         socket_file_path = "/tmp/" + file_socket
