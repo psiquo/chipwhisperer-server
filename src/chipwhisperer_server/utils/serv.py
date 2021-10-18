@@ -23,7 +23,10 @@ class CWServer:
 
         self.initialized = True
         self.scope = cw.scope()
-        self.proj = cw.create_project(fname)
+        try:
+            self.proj = cw.create_project(fname)
+        except OSError:
+            self.proj = cw.open_project(fname)
 
     def start_trace(self):
         if not self.initialized:
@@ -33,7 +36,7 @@ class CWServer:
         self.com.send_data("Acquiring trace")
         self.scope.arm()
         self.scope.capture()
-        
+
     def quit(self):
         self.proj.close()
         self.scope.dis()
