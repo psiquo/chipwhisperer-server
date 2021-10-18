@@ -9,4 +9,4 @@ def main(servName):
         soc.start_pyro_server()
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv >= 2) else None)
+    main(sys.argv[1] if len(sys.argv) >= 2 else None)
