@@ -59,7 +59,7 @@ class CWServer:
         plaintext = self.com.receive_data(decode = False)
         cyphertext = self.com.receive_data(decode = False)
 
-        if not wave:
+        if wave is None:
             return
 
         trace = cw.Trace(wave,plaintext,cyphertext,None)
